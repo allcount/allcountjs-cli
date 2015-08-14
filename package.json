@@ -2,19 +2,18 @@
   "name": "allcountjs-cli",
   "version": "1.0.0",
   "description": "AllcountJS command line interface",
-  "main": "bin/allcountjs",
+  "main": "./bin/allcount.js",
   "scripts": {
     "pretest": "jshint .",
-    "test": "./node_modules/.bin/mocha ./"
+    "test": "./node_modules/.bin/mocha --reporter spec --bail --check-leaks test/"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "allcountjs": "./bin/allcount.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/allcount/allcountjs-cli"
-  },
-  "devDependencies": {
-    "chai": "^3.2.0",
-    "jshint": "^2.8.0",
-    "mocha": "^2.2.5"
   },
   "keywords": [
     "rapid",
@@ -29,6 +28,17 @@
     "url": "https://github.com/allcount/allcountjs-cli/issues"
   },
   "homepage": "http://allcountjs.com",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "jshint": "^2.8.0",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.2.5",
+    "rimraf": "^2.4.2"
+  },
+  "dependencies": {
+    "commander": "^2.8.1",
+    "lodash": "^3.10.1",
+    "readline": "0.0.8"
+  }
 }
-
