@@ -39,6 +39,8 @@
   "dependencies": {
     "commander": "^2.8.1",
     "lodash": "^3.10.1",
-    "readline": "0.0.8"
+    "mkdirp": "^0.5.1",
+    "readline": "0.0.8",
+    "request": "^2.60.0"
   }
 }
