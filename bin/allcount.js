@@ -39,12 +39,18 @@ program
     .option('-c, --app <app_config_dir>', 'where app configuration directory is. Default is "app-config"')
     .option('-d, --db <db_url>', 'database connection url. Default is "mongodb://localhost:27017/<app_name>"')
     .action(function (opts) {
+        if (!fs.existsSync('package.json')) {
+            console.log("package.json doesn't exist. Seems to be not an AllcountJS project directory. Have you run `allcountjs init`?");
+            process.exit(1);
+            return;
+        }
         var currentPackageJson = JSON.parse(fs.readFileSync('package.json'));
         var appConfig = opts.app_config_dir || 'app-config';
         var dbUrl = opts.db_url || ('mongodb://localhost:27017/' + currentPackageJson.name);
 
         if (!fs.existsSync('./node_modules/allcountjs/allcount.js')) {
-            console.log("AllcountJS aren't installed. Please run npm install first.");
+            console.log("AllcountJS isn't installed. Please run `npm install` first.");
+            process.exit(1);
             return;
         }
         console.log("Using db url: " + dbUrl);
