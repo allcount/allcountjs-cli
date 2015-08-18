@@ -1,6 +1,6 @@
 {
   "name": "allcountjs-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AllcountJS command line interface",
   "main": "./bin/allcount.js",
   "scripts": {
