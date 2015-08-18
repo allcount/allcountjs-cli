@@ -45,8 +45,8 @@ program
             return;
         }
         var currentPackageJson = JSON.parse(fs.readFileSync('package.json'));
-        var appConfig = opts.app_config_dir || 'app-config';
-        var dbUrl = opts.db_url || ('mongodb://localhost:27017/' + currentPackageJson.name);
+        var appConfig = opts.app || 'app-config';
+        var dbUrl = opts.db || ('mongodb://localhost:27017/' + currentPackageJson.name);
 
         if (!fs.existsSync('./node_modules/allcountjs/allcount.js')) {
             console.log("AllcountJS isn't installed. Please run `npm install` first.");
